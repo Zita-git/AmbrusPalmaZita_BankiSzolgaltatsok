@@ -1,10 +1,10 @@
 package com.company;
 
-public class hitelSzamla extends Szamla{
+public class HitelSzamla extends Szamla{
     
     private final int hitelKeret;
 
-    public hitelSzamla(Tulajdonos tulajdonos, int hitelKeret) {
+    public HitelSzamla(Tulajdonos tulajdonos, int hitelKeret) {
 
         super(tulajdonos);
         this.hitelKeret = hitelKeret;

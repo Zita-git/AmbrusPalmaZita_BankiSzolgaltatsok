@@ -17,8 +17,8 @@ public class Main {
         megtakaritasiSzamla m1 = new megtakaritasiSzamla(t1);
         megtakaritasiSzamla m2 = new megtakaritasiSzamla(t2);
 
-        hitelSzamla h1 = new hitelSzamla(t1, 80000);
-        hitelSzamla h2 = new hitelSzamla(t2, 50000);
+        HitelSzamla h1 = new HitelSzamla(t1, 80000);
+        HitelSzamla h2 = new HitelSzamla(t2, 50000);
 
         Kartya k1 = m1.ujKartya("111");
         Kartya k2 = m2.ujKartya("222");
@@ -45,6 +45,18 @@ public class Main {
         System.out.println(k2.getTulajdonos().getNev());
         System.out.println(k2.getKartyaSzam());
 
+
+        System.out.println(b.getLegnagyobbEgyenleguSzamla(t1));
+
+        System.out.println(b.getOsszegyenleg(t2));
+        System.out.println(b.getOsszhitelkeret());
+        System.out.println(t1.getNev());
+
+        System.out.println(m1.aktualisEgyenleg);
+        m1.kivesz(200);
+        System.out.println(m1.aktualisEgyenleg);
+        m1.befizet(200);
+        System.out.println(m1.aktualisEgyenleg);
 
     }
 }
