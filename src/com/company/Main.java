@@ -1,62 +1,54 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
-
-    static List<Tulajdonos> szamlaLista = new ArrayList<>();
-
     public static void main(String[] args) {
 
         Bank b = new Bank();
 
-        Tulajdonos t1 = new Tulajdonos("Elek");
-        Tulajdonos t2 = new Tulajdonos("Kata");
+        Tulajdonos t = new Tulajdonos("Proba Egy");
+        Tulajdonos t2 = new Tulajdonos("Proba Ketto");
 
-        megtakaritasiSzamla m1 = new megtakaritasiSzamla(t1);
-        megtakaritasiSzamla m2 = new megtakaritasiSzamla(t2);
+        System.out.println(t.getNev());
+        System.out.println(t2.getNev());
 
-        HitelSzamla h1 = new HitelSzamla(t1, 80000);
-        HitelSzamla h2 = new HitelSzamla(t2, 50000);
+        t.setNev("Proba Egy setNev");
+        System.out.println(t.getNev());
+        System.out.println(t2.getNev());
 
-        Kartya k1 = m1.ujKartya("111");
-        Kartya k2 = m2.ujKartya("222");
+        BankiSzolgáltatás bsz = new BankiSzolgáltatás(t);
+        BankiSzolgáltatás bsz2 = new BankiSzolgáltatás(t2);
 
-        h1.befizet(40000);
-        h2.befizet(25000);
+        System.out.println(bsz.getTulajdonos());
+        System.out.println(bsz2.getTulajdonos());
 
-        b.szamlanyitas(t1,70000);
-        b.szamlanyitas(t2,120000);
+        Számla sz = new HitelSzámla(t,50000);
+        Számla sz2= new MegtakarításiSzámla(t2, 40000);
 
-        szamlaLista.add(t1);
-        szamlaLista.add(t2);
+        Kártya k=sz.ujKartya("111");
+        Kártya k2=sz2.ujKartya("222");
 
-        System.out.println(szamlaLista);
+        sz.befizet(10000);
+        sz2.befizet(100000);
 
-        System.out.println(k1.getTulajdonos().getNev());
-        System.out.println(k1.getKartyaSzam());
+        sz.kivesz(100000);
+        sz2.kivesz(100);
 
-        System.out.println(k2.getTulajdonos().getNev());
-        System.out.println(k2.getKartyaSzam());
+        b.szamlanyitas(t,1000000);
+        b.szamlanyitas(t2,10000);
 
-        t1.setNev("Lajos");
+        System.out.println(b);
 
-        System.out.println(k2.getTulajdonos().getNev());
-        System.out.println(k2.getKartyaSzam());
+        //System.out.println(b.getOsszhitelkeret());  majd rákérdezni, még mindig nem jó
 
 
-        System.out.println(b.getLegnagyobbEgyenleguSzamla(t1));
-
+        System.out.println(b.getLegnagyobbEgyenleguSzamla(t));
         System.out.println(b.getOsszegyenleg(t2));
-        System.out.println(b.getOsszhitelkeret());
-        System.out.println(t1.getNev());
+        System.out.println(k.getKartyaSzam());
+        System.out.println(k.vasarlas(100));
+        System.out.println(k2.getTulajdonos().getNev());
 
-        System.out.println(m1.aktualisEgyenleg);
-        m1.kivesz(200);
-        System.out.println(m1.aktualisEgyenleg);
-        m1.befizet(200);
-        System.out.println(m1.aktualisEgyenleg);
+
+
 
     }
 }
