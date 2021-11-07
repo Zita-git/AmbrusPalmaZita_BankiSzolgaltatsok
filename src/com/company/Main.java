@@ -15,17 +15,17 @@ public class Main {
         System.out.println(t.getNev());
         System.out.println(t2.getNev());
 
-        BankiSzolgáltatás bsz = new BankiSzolgáltatás(t);
-        BankiSzolgáltatás bsz2 = new BankiSzolgáltatás(t2);
+        BankiSzolgaltatas bsz = new BankiSzolgaltatas(t);
+        BankiSzolgaltatas bsz2 = new BankiSzolgaltatas(t2);
 
         System.out.println(bsz.getTulajdonos());
         System.out.println(bsz2.getTulajdonos());
 
-        Számla sz = new HitelSzámla(t,50000);
-        Számla sz2= new MegtakarításiSzámla(t2, 40000);
+        Szamla sz = new HitelSzamla(t,50000);
+        Szamla sz2= new MegtakaritasiSzamla(t2, 40000);
 
-        Kártya k=sz.ujKartya("111");
-        Kártya k2=sz2.ujKartya("222");
+        Kartya k=sz.ujKartya("111");
+        Kartya k2=sz2.ujKartya("222");
 
         sz.befizet(10000);
         sz2.befizet(100000);
