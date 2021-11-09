@@ -38,7 +38,7 @@ public class Main {
 
         System.out.println(b);
 
-        //System.out.println(b.getOsszhitelkeret());  majd rákérdezni, még mindig nem jó
+        //System.out.println(b.getOsszhitelkeret());   nem jó
 
 
         System.out.println(b.getLegnagyobbEgyenleguSzamla(t));
